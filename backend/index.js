@@ -6,6 +6,22 @@ console.log('loaded express');
 // load sequelize
 const { Sequelize, DataTypes } = require('sequelize');
 
+// define the model Url with the fields shortUrl, longUrl and expiry_date
+const Url = sequelize.define('Url', {
+	shortUrl: {
+		type: DataTypes.STRING,
+		allowNull: false
+	},
+	longUrl: {
+		type: DataTypes.STRING,
+		allowNull: false
+	},
+	expiry_date: {
+		type: DataTypes.DATE,
+		allowNull: true
+	}
+});
+
 // connect to DB
 async function connectToDB() {
 	sequelize = new Sequelize({
@@ -27,12 +43,12 @@ async function connectToDB() {
 await connectToDB();
 
 // write new Url to DB
-async function writeNewUrl(shortUrl, longUrl, expireydate){
+async function writeNewUrl(shortUrl, longUrl, expirydate){
 	try {
 		const url = await Url.create({
 			shortUrl: shortUrl,
 			longUrl: longUrl,
-			expiry_date: expireydate
+			expiry_date: expirydate
 		});
 		console.log('Url created:', url);
 	} catch (error) {
@@ -86,7 +102,10 @@ app.post('/', (req, res) => {
 				return;
 			default:
 				// Respond with a success message if no validation errors
-				res.status(200).send('Parameters extracted successfully!');
+
+				writeNewUrl(shortUrl, longUrl, expiry_date).then(
+					res.status(200).send('Parameters extracted successfully!')
+				);
 		}
 	} catch (err) {
 		console.error('Error in POST request:', err);
