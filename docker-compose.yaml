@@ -1,0 +1,50 @@
+version: "3"
+services:
+  reverse-proxy:
+    build: ./reverse-proxy
+    ports:
+      - "80:8081"
+    networks:
+      - main_network
+    ip: "192.168.91.20"
+
+  website:
+    build: ./frontend
+    ports:
+      - "8082:80"
+    networks:
+      - main_network
+    ip: "192.168.91.21"
+  
+  database:
+    image: mysql
+    ports:
+      - "8083:3306"
+    restart: always
+    networks:
+      - main_network
+    ip: "192.168.91.22"
+    volumes:
+      - ./database:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=database
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+
+  api:
+    build: ./backend
+    ports:
+      - "8084:3000"
+    networks:
+      - main_network
+    ip: "192.168.91.23"
+
+networks:
+  main_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.91.0/24"
+
+secrets:
+  db-password:
+    file: database/password.txt
