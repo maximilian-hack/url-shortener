@@ -7,8 +7,8 @@ console.log('loaded express');
 const { Sequelize, DataTypes } = require('sequelize');
 
 // connect to DB
-function connectToDB(){
-	sequelize = new sequelize({
+async function connectToDB() {
+	sequelize = new Sequelize({
 		host: 'maxpi',
 		port: 8083,
 		dialect: 'mysql',
@@ -22,14 +22,37 @@ function connectToDB(){
 	} catch (error) {
 		console.error('Unable to connect to the database:', error);
 	}
-};
+}
 
-connectToDB();
+await connectToDB();
 
 // write new Url to DB
-async function
+async function writeNewUrl(shortUrl, longUrl, expireydate){
+	try {
+		const url = await Url.create({
+			shortUrl: shortUrl,
+			longUrl: longUrl,
+			expiry_date: expireydate
+		});
+		console.log('Url created:', url);
+	} catch (error) {
+		console.error('Error creating URL:', error);
+	}
+}
 
 // get long Url by short Url from DB
+async function getLongUrl(shortUrl){
+	try {
+		const url = await Url.findOne({
+			where: {
+				shortUrl: shortUrl
+			}
+		});
+		return url.longUrl;
+	} catch (error) {
+		console.error('Error getting URL:', error);
+	}
+}
 
 //initialise the express stuff
 const app = express();
@@ -38,14 +61,14 @@ app.use(bodyParser.json());
 app.post('/', (req, res) => {
 	try {
 		// Extract parameters from the query string of the URL
-		const { shortUrl, longUrl, expireydate, submit } = req.query;
-		var { expirey } = req.query;
+		const { shortUrl, longUrl, expiry_date, submit } = req.query;
+		var { expiry } = req.query;
 
 		// Process parameters as needed
 		console.log('Short URL:', shortUrl);
 		console.log('Long URL:', longUrl);
-		console.log('Expiry:', expirey === 'on');
-		console.log('Expiry Date:', expireydate);
+		console.log('Expiry:', expiry === 'on');
+		console.log('Expiry Date:', expiry_date);
 		console.log('Submit:', submit);
 
 		switch (true) {
