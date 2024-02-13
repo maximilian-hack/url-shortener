@@ -1,0 +1,9 @@
+{
+  "background_color": "#020912",
+  "display": "standalone",
+  "icons": [
+  ],
+  "name": "Max's URL shortener",
+  "start_url": "/",
+  "theme_color": "#ae194b"
+}
