@@ -43,12 +43,12 @@ async function connectToDB() {
 await connectToDB();
 
 // write new Url to DB
-async function writeNewUrl(shortUrl, longUrl, expirydate){
+async function writeNewUrl(shortUrl, longUrl, expiry_date){
 	try {
 		const url = await Url.create({
 			shortUrl: shortUrl,
 			longUrl: longUrl,
-			expiry_date: expirydate
+			expiry_date: expiry_date
 		});
 		console.log('Url created:', url);
 	} catch (error) {
