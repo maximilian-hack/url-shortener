@@ -21,14 +21,14 @@ This project is a URL shortener implemented mainly in JavaScript, utilizing Expr
 - **Nginx Reverse Proxy:** Nginx acts as a reverse proxy, forwarding requests to the appropriate containers based on their URLs.
 
 ## Learning Highlights:
+In the process of developing this project, I gained valuable experience with several technologies and concepts:
+- **Docker:** I gained practical experience with Docker, understanding containerization principles and how to manage multi-container applications.
+- **JavaScript:** By using JavaScript for the backend, I improved my understanding of the language and its capabilities for server-side development especially with sequelize and express.js.
+- **Sequelize:** I learned how to use Sequelize as an ORM to simplify database interactions and manage database schemas effectively.
+- **MySQL:** I also acquired knowledge of working with MySQL databases, including schema design, data modeling, and query optimization.
+- **Nginx:** I explored the capabilities of Nginx, both as a web server and a reverse proxy, understanding its role in modern web application architectures.
 
-- **Docker:** Gain practical experience with Docker, understanding containerization principles and how to manage multi-container applications.
-- **JavaScript:** Deepened understanding of JavaScript, particularly in the context of building backend applications with Node.js and Express.js.
-- **Sequelize:** Learned how to use Sequelize as an ORM to simplify database interactions and manage database schemas effectively.
-- **MySQL:** Acquired knowledge of working with MySQL databases, including schema design, data modeling, and query optimization.
-- **Nginx:** Explored the capabilities of Nginx, both as a web server and a reverse proxy, understanding its role in modern web application architectures.
-
---- 
+---
 © 2024 Maximilian Hack
 
 Feel free to contribute to the project by submitting pull requests or reporting issues.
