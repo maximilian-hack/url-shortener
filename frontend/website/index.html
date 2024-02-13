@@ -21,21 +21,21 @@
 
 	<body>
 		<header>
-			<center>
-				Max's URL shortener
-			</center>
+			<div style="text-align: center;">
+				Max's <a>URL</a> shortener
+			</div>
 		</header>
 
-		<div id="main">
+		<div id="main" style="text-align: center">
 			<form autocomplete="on" action="/api" method="get">
 				<label for="url">What URL do you want to shorten?</label><br>
 				<input type="url" id="url" name="longUrl"><br>
-				<label for="wantedurl">"wantedurl">What short URL do you want?</label><br>
-				https://max-hack.de/shrt/<input type="text" id="wantedurl" name="shortUrl" maxlength="5"><br>
-				<label for="expirey">should the URL expire?</label><br>
-				<input type="checkbox" id="expirey" name="expirey" checked><br>
-				<label for="expireydate">When should it expire?</label><br>
-				<input type="date" id="expireydate" name="expireydate"><br>
+				<label for="wanted-url">What short URL do you want?</label><br>
+				https://max-hack.de/shrt/<input type="text" id="wanted-url" name="shortUrl" maxlength="5"><br>
+				<label for="expiry">should the URL expire?</label><br>
+				<input type="checkbox" id="expiry" name="expiry" checked><br>
+				<label for="expiry-date">When should it expire?</label><br>
+				<input type="date" id="expiry-date" name="expiry-date"><br>
 				<input type="submit" value="submit" id="submit" name="submit">
 			</form>
 		</div>
