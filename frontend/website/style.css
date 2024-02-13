@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo%20Narrow:700|Archivo%20Narrow:400');
+
+body {
+    font-family: 'Archivo Narrow';
+    font-weight: 5000;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Archivo Narrow';
+    font-weight: 700;
+}
+
+html {font-size: 100%;} /* 16px */
+
+h1 {font-size: 4.210rem; /* 67.36px */}
+
+h2 {font-size: 3.158rem; /* 50.56px */}
+
+h3 {font-size: 2.369rem; /* 37.92px */}
+
+h4 {font-size: 1.777rem; /* 28.48px */}
+
+h5 {font-size: 1.333rem; /* 21.28px */}
+
+small {font-size: 0.750rem; /* 12px */}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text: #030916;
+        --background: #edf4fd;
+        --primary: #2d63e1;
+        --secondary: #ef8add;
+        --accent: #e65183;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: #e9effc;
+        --background: #020912;
+        --primary: #1e54d2;
+        --secondary: #751062;
+        --accent: #ae194b;
+    }
+}
+
+:root {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+}
+
+a {
+    color: var(--text);
+    text-align: center;
+}
+
+header {
+    background-color: var(--background);
+    color: var(--text);
+    padding: 1em;
+    text-align: center;
+}
+
+#main {
+    background-color: var(--background);
+    color: var(--text);
+    padding: 1em;
+    text-align: center;
+}
+
+input, button {
+    background-color: var(--accent);
+    color: var(--text);
+    border: 1px solid var(--secondary);
+    padding: 0.5em;
+    margin: 0.5em;
+}
