@@ -11,28 +11,20 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
+                <li><a href="/retrieve">Lookup</a></li>
                 <li><a href="/create">Create</a></li>
             </ul>
         </nav>
     </header>
-    <h2>Retrieve Original URL</h2>
-    <form action="/" method="POST">
-        <input type="text" name="short_url" placeholder="Enter shortened URL" required>
-        <input type="submit" value="Retrieve">
-    </form>
-
-    {% if original_url %}
-        <p>Original URL: <a href="{{ original_url }}">{{ original_url }}</a></p>
-    {% endif %}
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <ul>
-        {% for category, message in messages %}
-          <li class="{{ category }}">{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
+    <h1>URL Shortener</h1>
+    <h2>A simple URL shortener using </h2>
+    <ul>
+        <li>Python</li>
+        <li>Flask</li>
+        <li>SQLite</li>
+    </ul>
+    <h2>What would you like to do?</h2>
+    <a href="create"><h3>Shorten your URL</h3></a>
+    <a href="retrieve"><h3>Retrieve Original URL</h3></a>
 </body>
 </html>

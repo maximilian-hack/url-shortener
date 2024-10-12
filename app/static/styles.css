@@ -15,6 +15,11 @@ h2 {
     color: #666;
 }
 
+h3 {
+    color: #000666;
+    font-size: medium;
+}
+
 form {
     margin-bottom: 20px;
 }

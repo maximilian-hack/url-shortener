@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/retrieve">Lookup</a></li>
+                <li><a href="/create">Create</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2>Retrieve Original URL</h2>
+    <form action="/retrieve" method="POST">
+        <input type="text" name="short_url" placeholder="Enter shortened URL" required>
+        <input type="submit" value="Retrieve">
+    </form>
+
+    {% if original_url %}
+        <p>Original URL: <a href="{{ original_url }}">{{ original_url }}</a></p>
+    {% endif %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>

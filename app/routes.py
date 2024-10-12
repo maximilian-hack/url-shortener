@@ -2,16 +2,21 @@ from flask import render_template, request, redirect, url_for, flash
 from app import app, db
 from app.models import URL
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/retrieve', methods=['GET', 'POST'])
+def retrieve():
     if request.method == 'POST':
         short_url_input = request.form['short_url']
-        url = URL.query.filter_by(short_url=short_url_input).first()
+        short_url_key = short_url_input.rsplit('/', 1)[-1]
+        url = URL.query.filter_by(short_url=short_url_key).first()
         if url:
-            return render_template('index.html', original_url=url.original_url, short_url=short_url_input)
+            return render_template('retrieve.html', original_url=url.original_url, short_url=short_url_input)
         else:
             flash('Short URL not found. Please try again.', 'error')
-    return render_template('index.html')
+    return render_template('retrieve.html')
 
 @app.route('/create', methods=['GET', 'POST'])
 def create():
