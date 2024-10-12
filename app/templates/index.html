@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>Shorten your URL</h1>
+    <form action="/" method="POST">
+        <input type="url" name="url" required>
+        <input type="submit" value="Shorten">
+    </form>
+
+    {% if short_url %}
+        <p>Shortened URL: <a href="/{{ short_url }}">http://localhost:5000/{{ short_url }}</a></p>
+    {% endif %}
+</body>
+</html>
