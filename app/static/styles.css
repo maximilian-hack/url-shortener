@@ -1,0 +1,78 @@
+/* app/static/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    color: #666;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="url"],
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+p {
+    background-color: #e7f4fe;
+    padding: 10px;
+    border-left: 4px solid #007bff;
+}
+
+.error {
+    color: red;
+    background-color: #f8d7da;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+}
+
+.success {
+    color: green;
+    background-color: #d4edda;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}

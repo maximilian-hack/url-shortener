@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>URL Shortener</title>
 </head>
 <body>
-    <h1>Shorten your URL</h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/create">Create</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2>Shorten your URL</h2>
     <form action="/create" method="POST">
         <input type="url" name="url" placeholder="Enter URL to shorten" required>
         <input type="submit" value="Shorten">
@@ -15,25 +24,5 @@
     {% if short_url %}
         <p>Shortened URL: <a href="/{{ short_url }}">http://localhost:5000/{{ short_url }}</a></p>
     {% endif %}
-
-    <h2>Retrieve Original URL</h2>
-    <form action="/create" method="POST">
-        <input type="text" name="short_url" placeholder="Enter shortened URL" required>
-        <input type="submit" value="Retrieve">
-    </form>
-
-    {% if original_url %}
-        <p>Original URL: <a href="{{ original_url }}">{{ original_url }}</a></p>
-    {% endif %}
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <ul>
-        {% for category, message in messages %}
-          <li class="{{ category }}">{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
 </body>
 </html>
